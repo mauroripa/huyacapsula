@@ -1,0 +1,182 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;  /* Ensure the globe is centered */
+    
+}
+
+.globe {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border-radius: 50%;
+    position: relative;
+    transform-style: preserve-3d;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/0/00/Global_Digital_Elevation_Model.jpg') repeat-x;
+    background-size: auto 100%;
+    animation: move-map 40s infinite linear;
+}
+
+.globe:before {
+    content: "";
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow: -45px 10px 70px 10px rgba(0, 0, 0, 0.5) inset;
+    z-index: 2;
+}
+
+.globe:after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    filter: blur(0);
+    opacity: 0.3;
+    background: radial-gradient(circle at 50% 80%, #81e8f6, #76deef 10%, #055194 66%, #062745 100%);
+}
+
+.globe .shadow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0) 50%);
+    transform: rotateX(90deg) translateZ(-150px);
+    z-index: -1;
+}
+
+body {
+    width: 300px;
+    margin: 20px auto;
+    background-color: #fff;
+}
+
+.bottom {
+    width: 300px;
+    height: 300px;
+    display: inline-block;
+    perspective: 1200px;
+    perspective-origin: 50% 50%;
+    position: relative;
+}
+
+@keyframes move-map {
+    0% {
+        background-position: -849px 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+.wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.inner {
+    --w: 100px;
+    --h: 150px;
+    --translateZ: calc((var(--w) + var(--h)) + 0px);
+    --rotateX: -15deg;
+    --perspective: 1000px;
+    height: var(--h);
+    z-index: 2;
+    position: absolute;  /* Ensure it rotates around the globe */
+    transform-style: preserve-3d;
+    transform: perspective(var(--perspective));
+    animation: rotating 20s linear infinite;
+}
+
+@keyframes rotating {
+    from {
+        transform: perspective(var(--perspective)) rotateX(var(--rotateX)) rotateY(0);
+    }
+
+    to {
+        transform: perspective(var(--perspective)) rotateX(var(--rotateX)) rotateY(1turn);
+    }
+}
+
+.card {
+    position: absolute;
+    border: 2px solid rgba(var(--color-card));
+    border-radius: 12px;
+    inset: 0;
+    width: 8vw;
+    transform: rotateY(calc((360deg / 10) * var(--index))) translateZ(var(--translateZ));
+}
+
+.img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: #0000
+        radial-gradient(
+            circle,
+            rgba(var(--color-card), 0.2) 0%,
+            rgba(var(--color-card), 0.6) 80%,
+            rgba(var(--color-card), 0.9) 100%
+        );
+}
+
+h1 {
+    position: relative;
+    text-transform: uppercase;
+    font-family: consolas;
+    letter-spacing: 0.1em;
+    margin: 0;
+    padding: 0;
+    font-size: 10px;
+    white-space: nowrap;
+    color: transparent;
+}
+
+h1:before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-right: 1px solid #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    background: linear-gradient(to right, green, aqua, green);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: type 4s linear infinite;
+}
+
+@keyframes type {
+    0% {
+        width: 0;
+    }
+
+    70% {
+        width: 100%;
+    }
+
+    90% {
+        width: 100%;
+    }
+
+    100% {
+        width: 0;
+    }
+}
