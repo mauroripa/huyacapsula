@@ -8,10 +8,21 @@
 </head>
 <body>
     <div class="container">
+        <div class="navbar">
+
+        </div>
+        <div class="container-globo">
         <section class="bottom">
-            <figure class="globe"><span class="shadow"></span></figure>
+            <figure class="globe">From THE CAPSULA TO THE WORLD<span class="shadow"></span></figure>
         </section> 
-        <div class="inner" style="--quantity: 10; ">
+    </div>
+    <div class="article">
+        <div class="contenitore-form">
+        <input type="text">
+        <button>Clicca</button>
+    </div>
+    </div>
+    <!-- <div class="inner3" style="--quantity: 10; ">
             
         <div class="card" style="--index: 0;--color-card: 142, 249, 252;">
             <div class="img"></div>
@@ -43,8 +54,31 @@
         <div class="card" style="--index: 9;--color-card: 142, 202, 252;">
             <div class="img"></div>
         </div>
-    </div>
+    </div>-->
     
 </div>
+<script>
+    const bottone = document.querySelector('button');
+    const articolo = document.querySelector('.article');
+    const inputField = document.querySelector('input');
+
+    function stampa() {
+        const nome = inputField.value.trim();  // Aggiungi il valore dell'input rimuovendo eventuali spazi vuoti
+        if (nome) {  // Aggiungi solo se il nome non è vuoto
+            // Crea un nuovo elemento <p> e inserisci il nome al suo interno
+            const nuovoNome = document.createElement('p');
+            nuovoNome.textContent = nome;  // Imposta il contenuto del paragrafo con il nome
+            articolo.appendChild(nuovoNome);  // Aggiungi il nuovo paragrafo nell'elemento 'article'
+
+            inputField.value = '';  // Resetta il campo di input dopo ogni clic
+        } else {
+            alert("Per favore inserisci un nome!"); // Messaggio di errore se il campo è vuoto
+        }
+    }
+
+    bottone.addEventListener("click", function() {
+        stampa();
+    });
+</script>
 </body>
 </html>

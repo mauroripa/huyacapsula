@@ -5,10 +5,23 @@
 }
 
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;  /* Ensure the globe is centered */
-    
+        width: 100%;
+        height: 100%;
+        --color: rgba(114, 114, 114, 0.3);
+        background-color: #191a1a;
+        background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent),
+            linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent);
+        background-size: 55px 55px;
+
+}
+.navbar{
+    background-color: #191a1a;
+    --color: rgba(114, 114, 114, 0.3);
+    background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent),
+    linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent);
+    height: 10vh;
+    background-size: 55px 55px;
+
 }
 
 .globe {
@@ -58,19 +71,20 @@
     z-index: -1;
 }
 
-body {
-    width: 300px;
-    margin: 20px auto;
-    background-color: #fff;
+.article{
+    height: 100vh;
+    width: auto;
 }
+
 
 .bottom {
     width: 300px;
     height: 300px;
-    display: inline-block;
-    perspective: 1200px;
-    perspective-origin: 50% 50%;
-    position: relative;
+    
+}
+.container-globo{
+    display: flex;
+    justify-content: center;
 }
 
 @keyframes move-map {
@@ -82,7 +96,11 @@ body {
         background-position: 0 0;
     }
 }
-
+.article input{
+    display: flex;
+    justify-content: center;
+    height: 10vh;
+}
 .wrapper {
     width: 100%;
     height: 100%;
@@ -94,7 +112,7 @@ body {
     --h: 150px;
     --translateZ: calc((var(--w) + var(--h)) + 0px);
     --rotateX: -15deg;
-    --perspective: 1000px;
+    --perspective: 2000px;
     height: var(--h);
     z-index: 2;
     position: absolute;  /* Ensure it rotates around the globe */
