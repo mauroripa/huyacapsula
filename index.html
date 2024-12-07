@@ -108,6 +108,9 @@
                             <span>BITCHASS</span>
                         </div>
                     </div>
+                    <div class="popup-michael" style="display:none;">
+                        <span class="popuptext" id="myPopup">STANNO SCOPANDO LA TUA TIPA, ADESSO!</span>
+                    </div>
                     <div class="container-eva">
                     <div class="loader">
                         <div class="modelViewPort">
@@ -133,7 +136,9 @@
                    <div class="card shadow-lg" >
                     <h1 class="title">FL STUDIO<br> CRACCATO</h1>
                         <img class="card-img" src="https://www.softzone.es/app/uploads-softzone.es/2020/06/C%C3%B3mo-instalar-FL-Studio-930x487.jpg">
-                    <button class="brutalist-button">
+                    <div class="card-body">
+                        <p>Se vuoi iniziare a fare musica cibernetica sai cosa scaricare ;D</p>
+                        <button class="brutalist-button">
                       <div class="ms-logo">
                         <div class="ms-logo-square"></div>
                         <div class="ms-logo-square"></div>
@@ -144,6 +149,7 @@
                         <span>Capsula</span>
                       </div>
                     </button>
+                    </div>
                 </div>
                    <div class="card shadow-lg">
                     <button class="brutalist-button">
@@ -159,6 +165,8 @@
                     </button>
                 </div>
                    <div class="card">
+                    <p>Se vuoi iniziare a fare musica cibernetica</p>
+                    <p>Se vuoi iniziare a fare musica cibernetica</p>
                     <button class="brutalist-button">
                       <div class="ms-logo">
                         <div class="ms-logo-square"></div>
@@ -230,6 +238,9 @@ video.addEventListener('timeupdate', function() {
 
 
     $(document).ready(function(){
+        $(".container-video").mouseenter(function(){
+            $(".popup-text").show();
+        });
         $(".container-mio").mouseenter(function () {
             $(".container-capsula").animate({
                 left:'0px',

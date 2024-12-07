@@ -205,6 +205,14 @@
   grid-template-columns: 1fr 1fr 1fr;
   padding: 4rem;
 }
+.popup-michael{
+  display: flex;
+  height: 20vh;
+  justify-content: center;
+  font-size: large;
+  font-family: "Orbitron";
+  color:white;
+}
 /* From Uiverse.io by 0xnihilism */ 
 .brutalist-button {
   display: flex;
