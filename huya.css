@@ -6,6 +6,7 @@
 :root{
     --font: "Silkscreen";
 }
+
 .logos {
     font-family: var(--font);
     font-size: larger;
@@ -49,7 +50,7 @@
   
   .logos-slide {
     display: inline-block;
-    animation: 35s slide infinite linear;
+    animation: 35s sliden infinite linear;
   }
   
   .logos-slide span {
@@ -57,7 +58,7 @@
     margin: 0 40px;
   }
   
-  @keyframes slide {
+  @keyframes sliden {
     from {
       transform: translateX(0);
     }
@@ -76,8 +77,12 @@
   }
   
   .logos-slider p {
-    height: 100px;
+    text-align: center;
+    height: 30px;
     margin: 0 0px;
+  }
+  .card{
+    width: 500px;
   }
   
   @keyframes slider {
@@ -103,7 +108,6 @@
     height: auto;
 }
 .container-mio {
-    
         width: 100%;
         height: 100%;
         --color: rgba(114, 114, 114, 0.3);
@@ -114,8 +118,7 @@
 
 }
 .container-video{
-    display: flex;
-    justify-content: center;
+    z-index: 1;
     
 }
 .container-mio video{
@@ -126,24 +129,32 @@
     opacity: 1;
     
 }
-.navbar{
+.navbar {
+    display: flex;
+    
     background-color: #191a1a;
     --color: rgba(114, 114, 114, 0.3);
     background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent),
     linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent);
     height: 10vh;
     background-size: 55px 55px;
-
+}
+.navbar h1{
+  font-family: "Orbitron";
+  color: white;
+  margin: auto;
 }
 
+
 .globe {
+  
     font-family: var(--font);
     display: inline-block;
     width: 100%;
     height: 100%;
     margin: 0;
     border-radius: 50%;
-    position: relative;
+    
     transform-style: preserve-3d;
     background: url('https://upload.wikimedia.org/wikipedia/commons/0/00/Global_Digital_Elevation_Model.jpg') repeat-x;
     background-size: auto 100%;
@@ -185,20 +196,347 @@
 }
 
 .article{
-    height: 100vh;
+    height: auto;
     width: auto;
+}
+.container-cards{
+  height: 80vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 4rem;
+}
+/* From Uiverse.io by 0xnihilism */ 
+.brutalist-button {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  width: 169px;
+  height: 60px;
+  background-color: #000;
+  color: #fff;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  border: 3px solid #fff;
+  outline: 3px solid #000;
+  box-shadow: 6px 6px 0 #00a4ef;
+  transition: all 0.1s ease-out;
+  padding: 0 15px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.brutalist-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.8),
+    transparent
+  );
+  z-index: 1;
+  transition: none;
+  /* Initially hide the pseudo-element */
+  opacity: 0;
+}
+
+@keyframes slide {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.brutalist-button:hover::before {
+  /* Show the pseudo-element on hover */
+  opacity: 1;
+  animation: slide 2s infinite;
+}
+
+.brutalist-button:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 10px 10px 0 #000;
+  background-color: #000;
+  color: #fff;
+}
+
+@keyframes slide {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.brutalist-button:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0px 0px 0 #00a4ef;
+  background-color: #fff;
+  color: #000;
+  border-color: #000;
+}
+
+/* Rest of the CSS remains the same */
+
+.ms-logo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 36px;
+  height: 26px;
+  margin-right: 8px;
+  flex-shrink: 0;
+  transition: transform 0.2s ease-out;
+  position: relative;
+  z-index: 1;
+}
+
+.brutalist-button:hover .ms-logo {
+  transform: rotate(-10deg) scale(1.1);
+}
+
+.brutalist-button:active .ms-logo {
+  transform: rotate(10deg) scale(0.9);
+}
+
+.ms-logo-square {
+  width: 100%;
+  height: 100%;
+ 
+}
+/* From Uiverse.io by Subaashbala */ 
+.modelViewPort {
+  /* The black circle background around the model*/
+  perspective: 1000px;
+  width: 20rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.eva {
+  --EVA-ROTATION-DURATION: 4s;
+  transform-style: preserve-3d;
+  animation: rotateRight var(--EVA-ROTATION-DURATION) linear infinite alternate;
+}
+.head {
+  position: relative;
+  width: 6rem;
+  height: 4rem;
+  border-radius: 48% 53% 45% 55% / 79% 79% 20% 22%;
+  background: linear-gradient(to right, white 45%, gray);
+}
+.eyeChamber {
+  width: 4.5rem;
+  height: 2.75rem;
+  position: relative;
+  left: 50%;
+  top: 55%;
+  border-radius: 45% 53% 45% 48% / 62% 59% 35% 34%;
+  background-color: #0c203c;
+  box-shadow: 0px 0px 2px 2px white, inset 0px 0px 0px 2px black;
+  transform: translate(-50%, -50%);
+  animation: moveRight var(--EVA-ROTATION-DURATION) linear infinite alternate;
+}
+.eye {
+  width: 1.2rem;
+  height: 1.5rem;
+  position: absolute;
+  border-radius: 50%;
+}
+.eye:first-child {
+  left: 12px;
+  top: 50%;
+  background: repeating-linear-gradient(
+    65deg,
+    #9bdaeb 0px,
+    #9bdaeb 1px,
+    white 2px
+  );
+  box-shadow: inset 0px 0px 5px #04b8d5, 0px 0px 15px 1px #0bdaeb;
+  transform: translate(0, -50%) rotate(-65deg);
+}
+.eye:nth-child(2) {
+  right: 12px;
+  top: 50%;
+  background: repeating-linear-gradient(
+    -65deg,
+    #9bdaeb 0px,
+    #9bdaeb 1px,
+    white 2px
+  );
+  box-shadow: inset 0px 0px 5px #04b8d5, 0px 0px 15px 1px #0bdaeb;
+  transform: translate(0, -50%) rotate(65deg);
+}
+.body {
+  width: 6rem;
+  height: 8rem;
+  position: relative;
+  margin-block-start: 0.25rem;
+  border-radius: 47% 53% 45% 55% / 12% 9% 90% 88%;
+  background: linear-gradient(to right, white 35%, gray);
+}
+.hand {
+  position: absolute;
+  left: -1.5rem;
+  top: 0.75rem;
+  width: 2rem;
+  height: 5.5rem;
+  border-radius: 40%;
+  background: linear-gradient(to left, white 15%, gray);
+  box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.25);
+  transform: rotateY(55deg) rotateZ(10deg);
+}
+.hand:first-child {
+  animation: compensateRotation var(--EVA-ROTATION-DURATION) linear infinite
+    alternate;
+}
+.hand:nth-child(2) {
+  left: 92%;
+  background: linear-gradient(to right, white 15%, gray);
+  transform: rotateY(55deg) rotateZ(-10deg);
+  animation: compensateRotationRight var(--EVA-ROTATION-DURATION) linear
+    infinite alternate;
+}
+.container-eva{
+  display: flex;
+  justify-content: center;
+}
+.scannerThing {
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: 60%;
+  top: 10%;
+  border-top: 180px solid #9bdaeb;
+  border-left: 250px solid transparent;
+  border-right: 250px solid transparent;
+  transform-origin: top left;
+  mask: linear-gradient(to right, white, transparent 35%);
+  animation: glow 2s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+}
+.scannerOrigin {
+  position: absolute;
+  width: 8px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  left: 60%;
+  top: 10%;
+  background: #9bdaeb;
+  box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.5);
+  animation: moveRight var(--EVA-ROTATION-DURATION) linear infinite;
+}
+@keyframes rotateRight {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(25deg);
+  }
+}
+@keyframes moveRight {
+  from {
+    transform: translate(-50%, -50%);
+  }
+  to {
+    transform: translate(-40%, -50%);
+  }
+}
+@keyframes compensateRotation {
+  from {
+    transform: rotateY(55deg) rotateZ(10deg);
+  }
+  to {
+    transform: rotatey(30deg) rotateZ(10deg);
+  }
+}
+@keyframes compensateRotationRight {
+  from {
+    transform: rotateY(55deg) rotateZ(-10deg);
+  }
+  to {
+    transform: rotateY(70deg) rotateZ(-10deg);
+  }
+}
+@keyframes glow {
+  from {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  45% {
+    transform: rotate(-25deg);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.ms-logo-square:nth-child(1) {
+  background-color: #f6ff00;
+  border-radius: 50% 10% 10% 50% ;
+}
+.ms-logo-square:nth-child(2) {
+  background-color: #ba0000;
+  border-radius: 10% 50% 50% 10% ;
+}
+.ms-logo-square:nth-child(3) {
+  background-color: #00a4ef;
+}
+.ms-logo-square:nth-child(4) {
+  background-color: #ffb900;
+}
+
+.button-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  transition: transform 0.2s ease-out;
+  position: relative;
+  z-index: 1;
+}
+
+.brutalist-button:hover .button-text {
+  transform: skew(-5deg);
+}
+
+.brutalist-button:active .button-text {
+  transform: skew(5deg);
+}
+
+.button-text span:first-child {
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.button-text span:last-child {
+  font-size: 16px;
+  text-transform: uppercase;
 }
 
 
 .bottom {
+  margin: auto;
     width: 300px;
+    display: none;
     height: 300px;
     
 }
-.container-globo{
-    display: flex;
-    justify-content: center;
-}
+
 
 @keyframes move-map {
     0% {
@@ -249,7 +587,7 @@
     border: 2px solid rgba(var(--color-card));
     border-radius: 12px;
     inset: 0;
-    width: 8vw;
+    width: 20vw;
     transform: rotateY(calc((360deg / 10) * var(--index))) translateZ(var(--translateZ));
 }
 
@@ -265,6 +603,7 @@
             rgba(var(--color-card), 0.9) 100%
         );
 }
+
 
 h1 {
     position: relative;
@@ -285,7 +624,7 @@ h1:before {
     left: 0;
     width: 100%;
     height: 100%;
-    border-right: 1px solid #fff;
+    border-right: 5px solid #09ff00;
     white-space: nowrap;
     overflow: hidden;
     background: linear-gradient(to right, green, aqua, green);
